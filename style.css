@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    font-family: Cairo;
+}
+.container {
+    transform-style: preserve-3d;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform: rotateX(90deg) rotateY(-36deg);
+    animation: play 12s infinite;
+    animation-timing-function: cubic-bezier(1,0,0,1);
+}
+.pentagon {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #0009;
+    clip-path: polygon(50% 0%, 97.5528% 34.5492%, 79.3893% 90.4508%, 20.6107% 90.4508%, 2.4471% 34.5492%);
+    z-index: 1;
+}
+.pentagon::before, .pentagon::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: linear-gradient(#0F9, #F90);
+    clip-path: inherit;
+    z-index: -1;
+}
+.pentagon::after {
+    width: 80%;
+    height: 80%;
+    background: #222;
+}
+.pentagon.bottomBase {
+    transform: rotateX(270deg) translateZ(130px) rotateZ(36deg);
+}
+.pentagon.topBase {
+    transform: rotateX(90deg) translateZ(130px) rotateZ(36deg);
+}
+.pentagon.bottom {
+    transform: translateY(29%) rotateY(calc(var(--deg)*72deg)) translateZ(117px) rotateX(333.33deg);
+}
+.pentagon.top {
+    transform: rotateZ(180deg) translateY(29%) rotateY(calc(var(--deg)*36deg)) translateZ(117px) rotateX(333.33deg);
+}
+@keyframes play {
+    0% {
+        transform: rotateX(90deg) rotateY(-36deg);
+    }
+    8.3% {
+        transform: rotateX(27deg) rotateY(0deg);
+    }
+    16.6% {
+        transform: rotateX(27deg) rotateY(-72deg);
+    }
+    24.9% {
+        transform: rotateX(27deg) rotateY(-144deg);
+    }
+    33.3% {
+        transform: rotateX(27deg) rotateY(-216deg);
+    }
+    41.6% {
+        transform: rotateX(27deg) rotateY(-288deg);
+    }
+    49.9% {
+        transform: rotateX(270deg) rotateY(36deg);
+    }
+    58.3% {
+        transform: rotateX(206.5deg) rotateY(144deg);
+    }
+    66.6% {
+        transform: rotateX(206.5deg) rotateY(72deg);
+    }
+    74.9% {
+        transform: rotateX(206.5deg) rotateY(0deg);
+    }
+    83.3% {
+        transform: rotateX(206.5deg) rotateY(-72deg);
+    }
+    91.6% {
+        transform: rotateX(206.5deg) rotateY(-144deg);
+    }
+    100% {
+        transform: rotateX(90deg) rotateY(-36deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ? Pentagon */
+/* clip-path: polygon(50% 0%, 97.5528% 34.5492%, 79.3893% 90.4508%, 20.6107% 90.4508%, 2.4471% 34.5492%); */
